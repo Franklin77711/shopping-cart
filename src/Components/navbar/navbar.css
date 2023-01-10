@@ -1,0 +1,31 @@
+.navigation{
+   position: fixed;
+   width: 100%;
+   height: fit-content;
+   margin: 0;
+   padding: 0;
+}
+.navbar{
+    display: flex;
+    gap: 3em;
+    margin: 1em 2em 0 0;
+    align-items: center;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.cart-container{
+    position: relative;
+    width: 3em;
+}
+
+.quantity{
+    position: absolute;
+    top: 25%;
+    right: 35%;
+    font-size: 18px;
+}
