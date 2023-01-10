@@ -1,0 +1,43 @@
+.shoppagecontent{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+.item-nav{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    font-size: 32px;
+}
+
+.items{
+    padding: 1em 0;
+    width: 75%;
+    height: 100%;
+    font-size: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15em);
+    justify-content: center;
+    row-gap: 3em;
+    column-gap: 3em;
+    margin-top: 7em;
+    background-color: white;
+    
+}
+.product{
+
+    display: flex;
+    gap: 1em;
+    word-break: break-all;
+}
+.product-name{
+    font-size: 26px;
+    font-weight: 500;
+}
+.product-image{
+    width: 2em;
+    aspect-ratio: 3/2;
+}
