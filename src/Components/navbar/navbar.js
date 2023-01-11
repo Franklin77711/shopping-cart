@@ -5,14 +5,17 @@ import CartSvg from "./cart.svg";
 
 
 const NavBar = (props) =>{
-    const currentQuntity = props
-    const [quantity, setQuantity] = useState();
-    
-    if(quantity !== currentQuntity.quantity){
-        setQuantity(currentQuntity.quantity);
-    }
+    const {inCart} = props;
+    const [itemsInCart, setItemsInCart] = useState(inCart);
 
-    return(
+        if(JSON.stringify(itemsInCart) !== JSON.stringify(inCart) && inCart){
+            console.log(inCart)
+            for(let item of inCart){
+                setItemsInCart(itemsInCart.concat(item)) 
+            }
+        }
+    console.log(inCart)
+        return(
         <div className="navigation">
             <div className="header">
                 <div className="wrapper">
@@ -21,8 +24,8 @@ const NavBar = (props) =>{
                 <div className="navbar">
                     <Link to="/shop" className="link">Shop</Link>
                     <div className="cart-container"> 
-                        <div className="quantity">{quantity}</div>
-                        <Link to="/cart" className="link"><img src={CartSvg} alt="cart"></img></Link>
+                        <div className="quantity">{itemsInCart.length}</div>
+                        <Link to="/cart" state= {itemsInCart} className="link"><img src={CartSvg} alt="cart"></img></Link>
                     </div>
                 </div>
             </div>

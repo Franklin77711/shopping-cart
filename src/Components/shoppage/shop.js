@@ -1,14 +1,15 @@
 import {React, useState} from "react";
 import "./shoppage.css";
 import NavBar from "../navbar/navbar";
-import ProductsJSON from "../../Data/run_results.json"
-import uniqid from "uniqid"
+import ProductsJSON from "../../Data/run_results.json";
+import uniqid from "uniqid";
+
+
 
 const ShopPage = () =>{
     const {products} = ProductsJSON;
-
-    const [productSorted, setProductSorted] = useState(products)
-
+    const [inCart, setInCart] = useState([]);
+    const [productSorted, setProductSorted] = useState(products);
     //----------------------OrderByFunctions-------------------------
     function ABCsort(){
         setProductSorted([...productSorted].sort((a, b) =>
@@ -27,10 +28,17 @@ const ShopPage = () =>{
         setProductSorted([...productSorted].sort((a, b) => b.price - a.price))
     }
 //--------------------------------END--------------------------------------
+//--------------------------Cart-Add-Handle--------------------------------
 
+    const handleAddToCart = (product)=>{
+        if(!inCart.includes(product)){
+            product.quantity = product.quantity+1;
+            setInCart(inCart.concat(product));
+        }
+       }
     return(
-        <div>
-            <NavBar/>
+        <div> 
+            <NavBar inCart={inCart}/>
             <div className="shoppagecontent">
                 <div className="item-nav">
                     <ol>
@@ -47,7 +55,10 @@ const ShopPage = () =>{
                                 <img src={product.image} alt="product" className="product-image"></img>
                                 <div>
                                     <h2 className="product-name">{product.name}</h2>
-                                    <h3 className="product-price">{Math.round(product.price * 0.0027)}$</h3>
+                                    <div className="price-container">
+                                        <h3 className="product-price">{Math.round(product.price * 0.0027)}$</h3>
+                                        <button type="button" onClick={()=>handleAddToCart(product)}>Add to Cart</button>
+                                    </div>
                                 </div>
                             </div>
                         )
