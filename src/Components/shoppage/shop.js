@@ -3,12 +3,28 @@ import "./shoppage.css";
 import NavBar from "../navbar/navbar";
 import ProductsJSON from "../../Data/run_results.json";
 import uniqid from "uniqid";
+import { useLocation } from "react-router-dom";
 
 
 
 const ShopPage = () =>{
+    const location = useLocation();
+    const navCart  = location.state;
+    
+    function cartCheck (){
+        if(navCart){
+            console.log("nem üres")
+            return navCart
+            
+        }else{
+            console.log("üres")
+            return []
+        }
+    }
+ 
+
     const {products} = ProductsJSON;
-    const [inCart, setInCart] = useState([]);
+    const [inCart, setInCart] = useState(cartCheck);
     const [productSorted, setProductSorted] = useState(products);
     //----------------------OrderByFunctions-------------------------
     function ABCsort(){
@@ -31,14 +47,14 @@ const ShopPage = () =>{
 //--------------------------Cart-Add-Handle--------------------------------
 
     const handleAddToCart = (product)=>{
-        if(!inCart.includes(product)){
-            product.quantity = product.quantity+1;
-            setInCart(inCart.concat(product));
-        }
-       }
+                if(!inCart.includes(product)){
+                    product.quantity = product.quantity+1;
+                    setInCart(inCart.concat(product));
+                }
+    }
     return(
         <div> 
-            <NavBar inCart={inCart}/>
+            <NavBar inCart={inCart} />
             <div className="shoppagecontent">
                 <div className="item-nav">
                     <ol>

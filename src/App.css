@@ -18,8 +18,3 @@ ol, li{
 }
 li{cursor: pointer;}
 
-input::-webkit-inner-spin-button, 
-input::-webkit-outer-spin-button{
-    padding: 1em;
-    margin: 0;
-}
