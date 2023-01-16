@@ -23,13 +23,13 @@ const NavBar = (props) =>{
         <div className="navigation">
             <div className="header">
                 <div className="wrapper">
-                <Link to="/" state= {inCart} className="link"><h1>Canon Camera Lens Webshop</h1></Link>
+                <Link to="/shopping-cart/" state= {inCart} className="link"><h1>Canon Camera Lens Webshop</h1></Link>
                 </div>
                 <div className="navbar">
-                    <Link to="/shop" state= {inCart} className="link"><h2>Shop</h2></Link>
+                    <Link to="/shopping-cart/shop" state= {inCart} className="link"><h2>Shop</h2></Link>
                     <div className="cart-container"> 
                         <div className="quantity">{totalQuantity()}</div>
-                        <Link to="/cart" state= {inCart} className="link"><img src={CartSvg} alt="cart" className="img-svg"></img></Link>
+                        <Link to="/shopping-cart/cart" state= {inCart} className="link"><img src={CartSvg} alt="cart" className="img-svg"></img></Link>
                     </div>
                 </div>
             </div>
