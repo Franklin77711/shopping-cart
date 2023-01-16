@@ -6,9 +6,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: normal;
+    gap: 1em;
 }
 #homepage-link{
     padding: 1em;
-    background-color: lavender;
     max-width: fit-content;
+}
+
+.home-svg{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    margin-right: 7em;
+    margin-bottom: 1em;
 }

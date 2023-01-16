@@ -4,11 +4,15 @@
    height: fit-content;
    margin: 0;
    padding: 0;
+   z-index: 1;
+   background-color: #BF1920;
+   color: white;
+   padding-left: 1em;
 }
 .navbar{
     display: flex;
     gap: 3em;
-    margin: 1em 2em 0 0;
+    margin: 1em 2em ;
     align-items: center;
 }
 .header{
@@ -26,7 +30,14 @@
 .quantity{
     position: absolute;
     top: 25%;
-    right: 35%;
-    font-size: 18px;
+    right: 20%;
+    font-size: 16px;
     z-index: -1;
+}
+.link h1, .link h2{
+    color: white
+}
+
+.img-svg{
+    filter: invert(93%) sepia(0%) saturate(7473%) hue-rotate(89deg) brightness(110%) contrast(107%);
 }

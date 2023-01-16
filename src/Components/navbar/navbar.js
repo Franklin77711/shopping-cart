@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import CartSvg from "./cart.svg";
@@ -6,29 +6,30 @@ import CartSvg from "./cart.svg";
 
 const NavBar = (props) =>{
     const {inCart} = props;
-    const [totalSum, setTotalSum] = useState(0);
 
-        if(totalSum == 0 && inCart.length > 0){
-            let sumHelp = 0;
-            inCart.map((product) => {
-                let sumPrice= Math.round(product.price * 0.0027) * product.quantity;
-                 sumHelp = sumHelp+sumPrice
-                }
-            ) 
-            setTotalSum(sumHelp)
-        
-        }
+    function totalQuantity(){
+        let sumHelp = 0;
+
+        inCart.map((product) => {
+            let quantityTotal= product.quantity;
+             sumHelp = sumHelp+quantityTotal
+             return sumHelp
+            }
+        )  
+        return sumHelp
+    }
+
         return(
         <div className="navigation">
             <div className="header">
                 <div className="wrapper">
-                <Link to="/" state= {inCart} className="link"><h1>Random Webshops Page</h1></Link>
+                <Link to="/" state= {inCart} className="link"><h1>Canon Camera Lens Webshop</h1></Link>
                 </div>
                 <div className="navbar">
-                    <Link to="/shop" state= {inCart} className="link">Shop</Link>
+                    <Link to="/shop" state= {inCart} className="link"><h2>Shop</h2></Link>
                     <div className="cart-container"> 
-                        <div className="quantity">{inCart.length}</div>
-                        <Link to="/cart" state= {inCart} className="link"><img src={CartSvg} alt="cart"></img></Link>
+                        <div className="quantity">{totalQuantity()}</div>
+                        <Link to="/cart" state= {inCart} className="link"><img src={CartSvg} alt="cart" className="img-svg"></img></Link>
                     </div>
                 </div>
             </div>

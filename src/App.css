@@ -1,6 +1,13 @@
+@font-face{
+    font-family: Canon;
+    src: url("./Data/CANON.ttf");
+}
+
 body{
     padding: 0;
     margin: 0;
+    font-family: Canon;
+    letter-spacing: 0.5em;
 }
 h1, h2, h3{
     margin: 0;

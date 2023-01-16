@@ -12,20 +12,21 @@ const ShopPage = () =>{
     const navCart  = location.state;
     
     function cartCheck (){
+
         if(navCart){
-            console.log("nem üres")
             return navCart
             
         }else{
-            console.log("üres")
             return []
         }
+        
     }
- 
-
+    
     const {products} = ProductsJSON;
     const [inCart, setInCart] = useState(cartCheck);
     const [productSorted, setProductSorted] = useState(products);
+    
+
     //----------------------OrderByFunctions-------------------------
     function ABCsort(){
         setProductSorted([...productSorted].sort((a, b) =>
@@ -47,11 +48,19 @@ const ShopPage = () =>{
 //--------------------------Cart-Add-Handle--------------------------------
 
     const handleAddToCart = (product)=>{
-                if(!inCart.includes(product)){
-                    product.quantity = product.quantity+1;
+        let isUnique = true;
+        inCart.forEach(item=>{
+            if(item.name === product.name){
+                isUnique = false;
+            }
+        })
+        if(isUnique){                              
+                    product.quantity = 1;
                     setInCart(inCart.concat(product));
-                }
+        }
     }
+
+
     return(
         <div> 
             <NavBar inCart={inCart} />
@@ -73,7 +82,7 @@ const ShopPage = () =>{
                                     <h2 className="product-name">{product.name}</h2>
                                     <div className="price-container">
                                         <h3 className="product-price">{Math.round(product.price * 0.0027)}$</h3>
-                                        <button type="button" onClick={()=>handleAddToCart(product)}>Add to Cart</button>
+                                        <button type="button" onClick={()=>handleAddToCart(product)} className="button">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
