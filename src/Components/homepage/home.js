@@ -18,7 +18,7 @@ const HomePage = () =>{
                 <h2>Please feel free to leave your money here and buy everything!</h2>
                 <Link to="/shopping-cart/shop" state= {inCart} className="link" id="homepage-link"><button className="button">Click HERE to Shop Now!</button></Link>
             </div>
-            <img src={HomeSVG} className="home-svg"></img>
+            <img src={HomeSVG} className="home-svg" alt="camera and photos"></img>
         </div>
     )
 }

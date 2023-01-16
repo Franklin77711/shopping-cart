@@ -42,8 +42,8 @@
 .order-container{
     position: absolute;
     right: 0;
-    top: 0;
-    margin-right: 10em;
+    top: -4em;
+    margin-right: 5em;
     height: 4em;
 }
 .order-button{
@@ -60,4 +60,13 @@
 .quantity-button{
     border-radius: 50%;
     padding: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .single-product{
+        display: flex;
+        flex-direction: column;
+        font-size: smaller;
+        word-break: break-all;
+    }
 }

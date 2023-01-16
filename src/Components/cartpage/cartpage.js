@@ -24,7 +24,7 @@ const CartPage = () =>{
 
     const handleDown = (product) =>{
         product.quantity = product.quantity - 1;
-        if(product.quantity == 0){
+        if(product.quantity === 0){
             setcartPageCart(cartPageCart.filter((obj)=> obj !== product))
         }
         sumTotal();
@@ -34,7 +34,8 @@ const CartPage = () =>{
 
         cartPageCart.map((product) => {
             let sumPrice= Math.round(product.price * 0.0027) * product.quantity;
-             sumHelp = sumHelp+sumPrice
+            sumHelp = sumHelp+sumPrice
+            return sumHelp
             }
         )
         return sumHelp
@@ -45,7 +46,8 @@ const CartPage = () =>{
 
         cartPageCart.map((product) => {
             let sumPrice= Math.round(product.price * 0.0027) * product.quantity;
-             sumHelp = sumHelp+sumPrice
+            sumHelp = sumHelp+sumPrice
+            return sumHelp
             }
         )
         setTotalSum(sumHelp)
@@ -62,18 +64,18 @@ const CartPage = () =>{
 
     const handleRemove = (product)=> {
         if(cartPageCart.includes(product)){
+            
             setcartPageCart(cartPageCart.filter((obj)=> obj !== product))
             someTotalRemove(product);
+            
         }
-        
-
     }
     return(
         <div>
             <NavBar inCart={cartPageCart}/>
             <div className="item-container">
                 {cartPageCart.map((product) =>
-                    <div className="single-product"  key={uniqid()}>
+                    <div className="single-product" key={uniqid()}>
                         <img src={product.image} alt="product" className="product-image cart-image"></img>
                         <h2 className="cart-name">{product.name}</h2>
                         <div className="quantity-container">
