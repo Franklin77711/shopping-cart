@@ -68,5 +68,7 @@
         flex-direction: column;
         font-size: smaller;
         word-break: break-all;
+        padding-bottom: 1em;
+        border-bottom: 1px solid black;
     }
 }

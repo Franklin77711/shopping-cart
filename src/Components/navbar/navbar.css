@@ -3,23 +3,23 @@
    width: 100%;
    height: fit-content;
    margin: 0;
-   padding: 0;
+   padding:  1em 0;
    z-index: 1;
    background-color: #BF1920;
    color: white;
    padding-left: 1em;
+  
 }
 .navbar{
     display: flex;
     gap: 3em;
-    margin: 1em 0;
-    margin-right: 10em;
     align-items: center;
 }
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+   padding-right: 2em;
 }
 
 
@@ -47,7 +47,6 @@
 @media screen and (max-width: 600px) {
     .link h1{
         font-size: 1em;
-        width: 10em
         
     }
     .link h2{
@@ -55,13 +54,19 @@
     }
     .header{
         gap: 0em;
+        justify-content: space-between;
+        padding-right: 2em;
     }
     .navbar{
         gap: 0;
-        margin: 1em 0;
-        margin-right: 10em;
+      
+        align-items: center;
+
     }
-    .navigation{
-        gap: 1em;
+    .wrapper{
+        word-break: keep-all;
+        width: fit-content;
+        display:table-cell; 
+        vertical-align:middle;
     }
 }
